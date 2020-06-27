@@ -10,15 +10,15 @@
 <body>
     <h1>Weekend Challenge #2</h1>
     <h2>Server Side Calculator</h2>
-    <form>
-        <input type="number">
-        <button type="button">+</button>
-        <button type="button">-</button>
-        <button type="button">*</button>
-        <button type="button">/</button>
-        <input type="number">
-        <button type="button">=</button>
-        <button type="button">C</button>
+    <form id="inputForm">
+        <input type="number" id="input1">
+        <button type="button" class="opBtn">+</button>
+        <button type="button" class="opBtn">-</button>
+        <button type="button" class="opBtn">*</button>
+        <button type="button" class="opBtn">/</button>
+        <input type="number" id="input2">
+        <button type="button" id="calculateBtn">=</button>
+        <button type="button" id="clearnBtn">C</button>
     </form>
     <section id="outputArea">
         <h2 id="resultDisplay"></h2>

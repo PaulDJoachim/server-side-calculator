@@ -66,4 +66,10 @@ function getHistory() {
 
 function printEverything(array) {
     console.log('later I will print this on the DOM:', array);
+    $('#outputArea').children().empty();
+    $('#resultDisplay').append(array[array.length-1].result);
+    for (let i=array.length-1; i>=0; i--) {
+        $('#resultList').append(`
+        <li>${array[i].input1} ${array[i].operator} ${array[i].input2} = ${array[i].result}</li>`);
+    }
 }

@@ -50,7 +50,7 @@ function calculate(object) {
     let result
     switch(object.operator) {
         case '+':
-            result = object.input1 + object.input2;
+            result = Number(object.input1) + Number(object.input2);
             break;
         case '-':
             result = object.input1 - object.input2;

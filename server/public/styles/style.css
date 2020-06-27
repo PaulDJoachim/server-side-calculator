@@ -1,0 +1,15 @@
+.table {
+    max-width: 50%;
+    margin:auto;
+    font-size: xx-large;
+    border-radius: 5;
+    text-align: center;
+}
+
+.btn {
+    min-width: 90%;
+    margin:auto;
+    font-weight: bold;
+    font-size: xx-large;
+    
+}

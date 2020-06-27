@@ -3,7 +3,7 @@ console.log('javascript is working!');
 //// DECLARATIONS ////
 
 // storage for last operator clicked
-let opStorage
+let opStorage;
 
 
 //// THE READY-NOW THING ////
@@ -17,7 +17,7 @@ $(readyNow);
 function readyNow() {
     console.log('jQuery is working!');
     $('.opBtn').on('click', opStore);
-    $('#calculateBtn').on('click', sendInput)
+    $('#calculateBtn').on('click', sendInput);
 }
 
 
@@ -28,3 +28,22 @@ function opStore() {
 }
 
 
+function sendInput() {
+    const inputPacket = {
+        input1: $('#input1').val(),
+        input2: $('#input2').val(),
+        operator: opStorage
+    }
+    $.ajax({
+        type: 'POST',
+        url: '/calculate',
+        data: inputPacket
+    }).then (function(response){
+        console.log('reply from /calculate POST is:', response);
+        // put a get request here for the answer?
+    }).catch (function(error){
+        alert('Failed to send inputs to server!');
+        console.log('Error on /calculate POST to server:', error);
+    })
+
+}

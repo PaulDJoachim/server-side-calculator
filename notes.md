@@ -3,7 +3,7 @@
 ### TODO
 
 x create basic html interface 
-- add jQuery tracking to interface elements
+x add jQuery tracking to interface elements
 - add client.js function to bundle inputs and POST to server
 - add server.js POST reciever and create storage for POSTed inputs
 - add server.js function for calculating inputs, and converting output to objects

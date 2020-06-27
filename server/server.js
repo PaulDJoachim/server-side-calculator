@@ -35,6 +35,15 @@ app.post('/calculate', (req, res)=>{
 })
 
 
+
+//// GET HANDLERS ////
+
+app.get('/calculate',(req, res)=>{
+    res.send(history);
+})
+
+
+
 //// FUNCTIONS ////
 
 function calculate(object) {

@@ -16,6 +16,7 @@ $(readyNow);
 
 function readyNow() {
     console.log('jQuery is working!');
+    getHistory()
     $('.opBtn').on('click', opStore);
     $('#calculateBtn').on('click', sendInput);
 }
@@ -41,9 +42,28 @@ function sendInput() {
     }).then (function(response){
         console.log('reply from /calculate POST is:', response);
         // put a get request here for the answer?
+        getHistory()
     }).catch (function(error){
         alert('Sorry, something went wrong!');
         console.log('Error on /calculate POST to server:', error);
     })
 
+}
+
+
+function getHistory() {
+    $.ajax({
+        type: 'GET',
+        url: '/calculate'
+    }).then (function(response){
+        printEverything(response);
+    }).catch (function(error){
+        alert('Sorry, something went wrong!');
+        console.log('Error on /calculate GET from server:', error);
+    })
+}
+
+
+function printEverything(array) {
+    console.log('later I will print this on the DOM:', array);
 }

@@ -1,7 +1,7 @@
 // Bring in the express modules
 // we don't start this one with the ./ because it should be looking in the node_module directory
 const express = require('express');
-
+let history = []
 
 // creates an instance of express to do all the web server things
 const app = express();
@@ -22,3 +22,40 @@ const port = 5000;
 app.listen(port,()=>{
     console.log('server is listening on port: ', port);
 })
+
+
+//// POST HANDLERS ////
+
+app.post('/calculate', (req, res)=>{
+    let input = req.body;
+    console.log('Got this packet from client:', input);
+    history.push(calculate(input));
+
+    res.sendStatus(201);
+})
+
+
+//// FUNCTIONS ////
+
+function calculate(object) {
+    let result
+    switch(object.operator) {
+        case '+':
+            result = object.input1 + object.input2;
+            break;
+        case '-':
+            result = object.input1 - object.input2;
+            break;
+        case '*':
+            result = object.input1 * object.input2;
+            break;
+        case '/':
+            result = object.input1 / object.input2;
+    }
+    return {
+        input1: object.input1,
+        input2: object.input2,
+        operator: object.operator,
+        result: result
+    }
+}

@@ -42,7 +42,7 @@ function sendInput() {
         console.log('reply from /calculate POST is:', response);
         // put a get request here for the answer?
     }).catch (function(error){
-        alert('Failed to send inputs to server!');
+        alert('Sorry, something went wrong!');
         console.log('Error on /calculate POST to server:', error);
     })
 

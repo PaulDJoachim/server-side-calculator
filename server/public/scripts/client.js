@@ -21,6 +21,7 @@ function readyNow() {
     $('#calculateBtn').on('click', sendInput);
     $('#clearBtn').on('click', clearDisplay);
     $('#allClear').on('click', allClear);
+    $('#bkSpace').on('click', backspace);
     getHistory()
 }
 
@@ -176,4 +177,20 @@ function allClear() {
     opAdded = false;
     dotCount = 0;
     $('#resultList').empty();
+}
+
+
+function backspace() {
+    let inputString = $('#display').val()
+    let backspace = $('#display').val(inputString.slice(0,-1));
+    let last = inputString[inputString.length-1]
+
+    if (last === '.') {
+        backspace;
+        dotCount = 0;
+    } else if (last === '+'||last === '-'||last === '*'||last === '/') {
+        backspace;
+        opAdded = false;
+    }
+    
 }

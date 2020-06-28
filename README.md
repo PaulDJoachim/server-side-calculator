@@ -1,9 +1,3 @@
-
-![MIT LICENSE](https://img.shields.io/github/license/PaulDJoachim/jquery-server-side-calculator.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-size/PaulDJoachim/jquery-server-side-calculator)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/PaulDJoachim/jquery-server-side-calculator.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/PaulDJoachim/jquery-server-side-calculator.svg?style=social)
-
 # JQUERY SERVER SIDE CALCULATOR
 
 ## Description

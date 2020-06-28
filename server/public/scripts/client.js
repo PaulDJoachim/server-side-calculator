@@ -22,7 +22,9 @@ function readyNow() {
     $('#clearBtn').on('click', clearDisplay);
     $('#allClear').on('click', allClear);
     $('#bkSpace').on('click', backspace);
-    getHistory()
+    $('#resultList').on('click', '*', reRun);
+    clearDisplay();
+    getHistory();
 }
 
 
@@ -102,13 +104,13 @@ function getHistory() {
 function printEverything(array) {
     console.log('later I will print this on the DOM:', array);
     $('#resultList').children().remove();
-    // check to make sure the array has something, if so print it
+    // check to make sure the history array has something, if so print it
     if (array.length > 0) {
-        $('#result').val(array[array.length-1].result);
+        $('#resultList').append(`<strong>${array[array.length-1].result}</strong>`);
     }
     for (let i=array.length-1; i>=0; i--) {
         $('#resultList').append(`
-        <li>${array[i].input1} ${array[i].operator} ${array[i].input2} = ${array[i].result}</li>`);
+        <li class="histItem">${array[i].input1} ${array[i].operator} ${array[i].input2} = ${array[i].result}</li>`);
     }
 }
 
@@ -180,6 +182,7 @@ function allClear() {
 }
 
 
+// delete the last character on the display
 function backspace() {
     let inputString = $('#display').val()
     let backspace = $('#display').val(inputString.slice(0,-1));
@@ -193,4 +196,22 @@ function backspace() {
         opAdded = false;
     }
     
+}
+
+
+// run an old calculation again when clicked from history
+function reRun() {
+    let clicked = $(this)[0].textContent;
+    // get rid of anything after the '='
+    for (i=0; i<clicked.length; i++) {
+        if (clicked[i] === '=') {
+            clicked = clicked.substring(0,i-1);
+        }
+    }
+    // remove spaces from the string
+    clicked = clicked.replace(/\s/g, '');
+    // put back on the display
+    $('#display').val(clicked);
+    // calculate again
+    sendInput()
 }

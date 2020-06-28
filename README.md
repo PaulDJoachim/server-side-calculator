@@ -8,7 +8,7 @@ This application works as a calculator that can perform operations on two number
 
 ## Screen Shot
 
-![Wireframe](calcPic.png)
+![Wireframe](images/calcPic.png)
 
 
 ## Usage

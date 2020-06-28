@@ -1,15 +1,48 @@
+html {
+    height: 100%;
+    background-image: linear-gradient(rgb(125, 190, 255), #516b92);
+}
+
+header {
+    text-align: center;
+    background-color: #bedeff;
+    border-bottom: 8px solid #1a376e;
+    margin-bottom: 2rem;
+}
+
 .table {
     max-width: 50%;
     margin:auto;
-    font-size: xx-large;
+    font-size: large;
     border-radius: 5;
     text-align: center;
 }
 
 .btn {
     min-width: 90%;
-    margin:auto;
+    margin: auto;
     font-weight: bold;
-    font-size: xx-large;
-    
+    font-size: x-large;
+    max-width: 20px;
 }
+
+.table td {
+    padding: 5px;
+}
+
+.resultList {
+    text-align: left;
+    float: left;
+    overflow: scroll;
+    height: 352px
+}
+
+form {
+    max-width: 35rem;
+    margin: auto;
+}
+
+table {
+    float: left;
+}
+

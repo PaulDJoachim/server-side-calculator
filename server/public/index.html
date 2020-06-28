@@ -11,60 +11,49 @@
    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-   <h1>Weekend Challenge #2</h1>
-   <h2>Server Side Calculator</h2>
-   <!-- <form id="inputForm">
-      <input type="number" id="input1">
-      <button type="button" class="opBtn">+</button>
-      <button type="button" class="opBtn">-</button>
-      <button type="button" class="opBtn">*</button>
-      <button type="button" class="opBtn">/</button>
-      <input type="number" id="input2">
-      <button type="button" id="calculateBtn">=</button>
-      <button type="button" id="clearnBtn">C</button>
-      </form> -->
-      <form name="calculator">
+   <header>
+      <h1>Weekend Challenge #2</h1>
+      <h2>Server Side Calculator</h2>
+   </header>
+   <form name="calculator">
       <table name="calculator" class="table table-bordered table-dark"> 
          <tr> 
-            <td colspan="3"><input type="text" name="display" id="display" value=""/></td> 
-            <td><input type="button" value="del"/></td>     
+            <td colspan="4"><input type="text" class="form-control" name="display" id="display"/></td> 
+            </td>
          </tr> 
          <tr>
-            <td colspan="3"><input type="text" name="result" id="result"/>
-            <td><input type="button" id="clearBtn" value="c"/></td>
+            <td colspan="2"><input type="button" class="btn btn-warning" value="&#8592"/></td>
+            <td><input type="button" class="btn btn-warning" id="clearBtn" value="CE"/></td>
+            <td><input type="button" class="btn btn-warning" id="allClear" value="AC"/></td>     
          </tr>
          <tr> 
-            <!-- create button and assign value to each button -->
-            <!-- dis("1") will call function dis to display value -->
-            <td><input type="button" class="btn btn-primary" value="1" onclick="calculator.display.value += '1'"/> </td> 
-            <td><input type="button" class="btn btn-primary" value="2" onclick="calculator.display.value += '2'"/> </td> 
-            <td><input type="button" class="btn btn-primary" value="3" onclick="calculator.display.value += '3'"/> </td> 
-            <td><input type="button" class="btn btn-primary opBtn" value="/" onclick="calculator.display.value += '/'"/> </td> 
+            <td><input type="button" class="btn btn-primary" value="7" onclick="calculator.display.value += '7'"/> </td> 
+            <td><input type="button" class="btn btn-primary" value="8" onclick="calculator.display.value += '8'"/> </td> 
+            <td><input type="button" class="btn btn-primary" value="9" onclick="calculator.display.value += '9'"/> </td> 
+            <td><input type="button" class="btn btn-info opBtn" value="*" onclick="calculator.display.value += '*'"/> </td> 
          </tr> 
          <tr> 
             <td><input type="button" class="btn btn-primary" value="4" onclick="calculator.display.value += '4'"/> </td> 
             <td><input type="button" class="btn btn-primary" value="5" onclick="calculator.display.value += '5'"/> </td> 
             <td><input type="button" class="btn btn-primary" value="6" onclick="calculator.display.value += '6'"/> </td> 
-            <td><input type="button" class="btn btn-primary opBtn" value="-" onclick="calculator.display.value += '-'"/> </td> 
+            <td><input type="button" class="btn btn-info opBtn" value="/" onclick="calculator.display.value += '/'"/> </td> 
          </tr> 
          <tr> 
-            <td><input type="button" class="btn btn-primary" value="7" onclick="calculator.display.value += '7'"/> </td> 
-            <td><input type="button" class="btn btn-primary" value="8" onclick="calculator.display.value += '8'"/> </td> 
-            <td><input type="button" class="btn btn-primary" value="9" onclick="calculator.display.value += '9'"/> </td> 
-            <td><input type="button" class="btn btn-primary opBtn" value="+" onclick="calculator.display.value += '+'"/> </td> 
+            <td><input type="button" class="btn btn-primary" value="1" onclick="calculator.display.value += '1'"/> </td> 
+            <td><input type="button" class="btn btn-primary" value="2" onclick="calculator.display.value += '2'"/> </td> 
+            <td><input type="button" class="btn btn-primary" value="3" onclick="calculator.display.value += '3'"/> </td> 
+            <td><input type="button" class="btn btn-info opBtn" value="-" onclick="calculator.display.value += '-'"/> </td> 
          </tr> 
          <tr> 
-            <td><input type="button" class="btn btn-primary dotBtn" value="." onclick="calculator.display.value += '.'"/> </td> 
             <td><input type="button" class="btn btn-primary" value="0" onclick="calculator.display.value += '0'"/> </td> 
-            <!-- solve function call function solve to evaluate value -->
-            <td><input type="button" class="btn btn-primary" id="calculateBtn" value="="/> </td> 
-            <td><input type="button" class="btn btn-primary opBtn" value="*" onclick="calculator.display.value += '*'"/> </td> 
+            <td><input type="button" class="btn btn-primary dotBtn" value="." onclick="calculator.display.value += '.'"/> </td> 
+            <td><input type="button" class="btn btn-danger" id="calculateBtn" value="="/> </td> 
+            <td><input type="button" class="btn btn-info opBtn" value="+" onclick="calculator.display.value += '+'"/> </td> 
          </tr> 
-   </table> 
+      </table> 
    </form>
-   <section id="outputArea">
-      <h2 id="resultDisplay"></h2>
-      <ul id="resultList"></ul>
-   </section>
+   <div class="alert alert-primary resultList" id="resultList" role="alert">
+      <!-- jQuery prints result history here -->
+   </div>
 </body>
 </html>

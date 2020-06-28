@@ -31,7 +31,7 @@ app.post('/calculate', (req, res)=>{
     console.log('Got this packet from client:', input);
     history.push(calculate(input));
 
-    res.sendStatus(201);
+    res.sendStatus(200);
 })
 
 
@@ -42,6 +42,13 @@ app.get('/calculate',(req, res)=>{
     res.send(history);
 })
 
+
+//// DELETE HANDLER ////
+
+app.delete('/delete',(req, res)=>{
+    history = [];
+    res.sendStatus(200)
+})
 
 
 //// FUNCTIONS ////

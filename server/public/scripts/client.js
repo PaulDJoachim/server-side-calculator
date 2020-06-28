@@ -16,11 +16,12 @@ $(readyNow);
 
 function readyNow() {
     console.log('jQuery is working!');
-    getHistory()
     $('.opBtn').on('click', opCop);
     $('.dotBtn').on('click', dotCop);
     $('#calculateBtn').on('click', sendInput);
     $('#clearBtn').on('click', clearDisplay);
+    $('#allClear').on('click', allClear);
+    getHistory()
 }
 
 
@@ -99,8 +100,11 @@ function getHistory() {
 // print all results on the dom
 function printEverything(array) {
     console.log('later I will print this on the DOM:', array);
-    $('#outputArea').children().empty();
-    $('#result').val(array[array.length-1].result);
+    $('#resultList').children().remove();
+    // check to make sure the array has something, if so print it
+    if (array.length > 0) {
+        $('#result').val(array[array.length-1].result);
+    }
     for (let i=array.length-1; i>=0; i--) {
         $('#resultList').append(`
         <li>${array[i].input1} ${array[i].operator} ${array[i].input2} = ${array[i].result}</li>`);
@@ -152,4 +156,24 @@ function clearDisplay() {
     $('#display').val('');
     opAdded = false;
     dotCount = 0;
+}
+
+
+// clear display & delete all history from the server
+function allClear() {
+    $.ajax({
+        method: 'DELETE',
+        url: '/delete',
+        // data: 'name=history'
+    }).then (function(response){
+        console.log(response);
+    }).catch (function(error){
+        alert('Sorry, something went wrong!');
+        console.log('Error on /calculate DELETE to server:', error);
+    })
+    $('#result').val('');
+    $('#display').val('');
+    opAdded = false;
+    dotCount = 0;
+    $('#resultList').empty();
 }
